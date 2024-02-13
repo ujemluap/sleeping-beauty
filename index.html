@@ -33,6 +33,7 @@
       }
 
       .container-fluid {
+        margin: 20px auto;
         padding: 7% 15%;
         text-align: justify;
       }
@@ -50,6 +51,24 @@
         color: rgb(174, 109, 228);
         font-size: 1.6rem;
       }
+
+      .finale-btn {
+        width: 100%;
+        margin: 20px auto;
+        padding: 8px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        display: none;
+      }
+
+      .last-part {
+        display: none;
+      }
+
+      .show {
+        display: inline-block;
+      }
     </style>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -59,20 +78,30 @@
   </head>
   <body>
     <div class="container-fluid">
-      <h1>
-        Happy Valentine’s Day,<br /><span class="multiText1">&ThinSpace;</span>!
-      </h1>
+      <h1>Happy Valentine’s Day,<br /><span class="multiText1"></span>!</h1>
       <br />
       <hr />
       <br />
       <p>
         <span class="multiText2"></span>
       </p>
+      <button class="finale-btn">The Finale</button>
+      <p>
+        <span class="last-part"
+          >I wish I can have more hours in a day because 24 definitely isn’t
+          enough to spend with you. <br />Sending virtual hugs and kisses (for
+          now) until I get to see you.</span
+        >
+      </p>
+
       <br />
     </div>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="script.js"></script>
     <script>
+      const finaleButton = document.querySelector(".finale-btn");
+      const lastPart = document.querySelector(".last-part");
+
       // functions
       function multiTextType1() {
         var typingEffect = new Typed(".multiText1", {
@@ -100,7 +129,7 @@
             "I recall you love reading, so I know you’d enjoy this. <br /> Hopefully my assumption was right. Sit tight.",
             "<p><span>Things I like ",
             "<p><span>Things I love about sleeping beauty (in no particular order)<ul><li>Her eyes</li><li>Her nose</li><li>Her lips</li><li>Her eyebrows</li><li>Her teeth</li><li>Her legs</li><li>Her hands</li><li>Her smile that can make me sell my left kidney</li><li>Her random facial expressions</li><li>Her laugh</li><li>Her walk</li><li>Her humor</li><li>Her voice dammmnnnnnnn</li><li>Her spiritual life</li>and many more...<br />",
-            "<p><span>Things I love about sleeping beauty (in no particular order)<ul><li>Her eyes</li><li>Her nose</li><li>Her lips</li><li>Her eyebrows</li><li>Her teeth</li><li>Her legs</li><li>Her hands</li><li>Her smile that can make me sell my left kidney</li><li>Her random facial expressions</li><li>Her laugh</li><li>Her walk</li><li>Her humor</li><li>Her voice dammmnnnnnnn</li><li>Her spiritual life</li>and many more...<br /><br /><br />Things I don’t like…<li>Her cuddling her teddy elephant every night (elephan)</li><li>Her staying in a different state</li><li>Her Ota MTN network whenever I’m home</li><li>Her having to wear clothes and not me(Like whyyy??)</li>",
+            "<p><span>Things I love about sleeping beauty (in no particular order)<ul><li>Her eyes</li><li>Her nose</li><li>Her lips</li><li>Her eyebrows</li><li>Her teeth</li><li>Her legs</li><li>Her hands</li><li>Her smile that can make me sell my left kidney</li><li>Her random facial expressions</li><li>Her laugh</li><li>Her walk</li><li>Her humor</li><li>Her voice dammmnnnnnnn</li><li>Her spiritual life</li>and many more...<br /><br /><br />Things I don’t like…<li>Her cuddling her teddy elephant every night (elephan)</li><li>Her staying in a different state</li><li>Her Ota MTN network whenever I’m home</li><li>Her having to wear clothes and not me (Like whyyy??)</li>",
           ],
           loop: false,
           typeSpeed: 90,
@@ -109,9 +138,18 @@
         });
       }
 
+      const showFinaleButton = () => {
+        finaleButton.classList.add("show");
+      };
+
+      finaleButton.addEventListener("click", () => {
+        lastPart.classList.toggle("show");
+      });
+
       // // calling them
       setTimeout(multiTextType1, 1000);
       setTimeout(multiTextType2, 5000);
+      setTimeout(showFinaleButton, 30000);
     </script>
   </body>
 </html>
